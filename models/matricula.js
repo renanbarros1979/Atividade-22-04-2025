@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Matricula.associate = (models) => {
-        Matricula.hasMany(models.Atribuicao, {
-            foreignKey: 'atribuicaoID',
-            as: 'atribuicao'
+        Matricula.hasMany(models.Componente, {
+            foreignKey: 'matriculaID',
+            as: 'Componente'
         });
     };
 

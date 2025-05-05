@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { Matricula, Atribuicao } = require("../models"); 
+const { Matricula, Componente } = require("../models"); 
 
 router.get("/", async (req, res) => {
   try {
     const matriculas = await Matricula.findAll({
-      include: [{ model: Atribuicao, as: "Atribuicao" }],
+      include: [{ model: Componente, as: "Componente" }],
     });
 
     res.render("base", {
@@ -21,11 +21,11 @@ router.get("/", async (req, res) => {
 
 router.get("/add", async (req, res) => {
   try {
-    const atribuicoes = await Atribuicao.findAll();
+    const componentes = await Componente.findAll();
     res.render("base", {
       title: "Add Matrícula",
       view: "matriculas/add",
-      atribuicoes,
+      componentes,
     });
   } catch (err) {
     console.error(err);
@@ -51,15 +51,15 @@ router.get("/edit/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const matricula = await Matricula.findByPk(id, {
-      include: [{ model: Atribuicao, as: "Atribuicao" }],
+      include: [{ model: Componente, as: "Componente" }],
     });
-    const atribuicoes = await Atribuicao.findAll();
+    const componentes = await Componente.findAll();
     if (matricula) {
       res.render("base", {
         title: "Edit Matrícula",
         view: "matriculas/edit",
         matricula,
-        atribuicoes,
+        componentes,
       });
     } else {
       res.status(404).send("Matrícula não encontrada");

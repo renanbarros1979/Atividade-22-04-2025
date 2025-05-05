@@ -1,0 +1,32 @@
+<h1>Matriculas</h1>
+
+<a href="/matriculas/add" class="btn btn-success mb-3">Add Matriculas</a>
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% matriculas.forEach(matricula=> { %>
+            <tr>
+                <td>
+                    <%= matricula.id %>
+                </td>
+                <td>
+                    <%= matricula.nome %>
+                </td>
+                <td>
+                    <a href="/matriculas/edit/<%= matricula.id %>" class="btn btn-primary btn-sm">Editar</a>
+                    <form action="/matriculas/delete/<%= matricula.id %>" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+
+            <% }) %>
+    </tbody>
+</table>

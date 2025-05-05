@@ -28,6 +28,8 @@ const categoriaRouter = require("./routes/categorias");
 const professorRouter = require("./routes/professor");
 const alunoRouter = require("./routes/aluno");
 const integranteRouter = require("./routes/integrantes");
+const matriculaRouter = require("./routes/matricula");
+const componenteRouter = require("./routes/componente");
 
 //const produtoRouter = require("./routes/produtos");
 
@@ -35,6 +37,10 @@ app.use("/categorias", categoriaRouter);
 app.use("/professores", professorRouter);
 app.use("/alunos", alunoRouter);
 app.use("/integrantes", integranteRouter);
+app.use("/matriculas", matriculaRouter);
+app.use("/componentes", componenteRouter);
+
+
 
 // Iniciar o servidor e sincronizar com o banco de dados
 

@@ -11,11 +11,11 @@ router.get("/", async (req, res) => {
     res.render("base", {
       title: "Alunos",
       view: "alunos/show",
-      produtos,
+      alunos,
     });
   } catch (err) {
     console.error(err);
-    res.status(500).send("Erro ao recuperar produtos");
+    res.status(500).send("Erro ao recuperar alunos");
   }
 });
 
